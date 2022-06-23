@@ -1,0 +1,49 @@
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+ <div id="map_container" style="height:100vh;width:100vw;"></div>
+ <script>
+     window.init_map = function(){
+         window.map = new google.maps.Map(document.getElementById("map_container"), {
+             center: { lat:0 , lng:0 },
+             zoom: 3,
+         });
+ 
+         //map.zoom
+         //map.center.toJSON()
+         //map.center.lat()
+         //map.center.lng()
+ 
+         /* marker = new google.maps.Marker(
+         {
+             map:map,
+             draggable:true,
+             animation: google.maps.Animation.DROP,
+             position: results[0].geometry.location
+         }); */
+ 
+         window.map.addListener("click", (evt) => {
+             console.log(evt);
+             console.log(JSON.stringify(evt.latLng.toJSON(), null, 2));
+ 
+             const flightPlanCoordinates = [
+                 { lat: 37.772, lng: -122.214 },
+                 { lat: 21.291, lng: -157.821 },
+                 { lat: -18.142, lng: 178.431 },
+                 { lat: -27.467, lng: 153.027 },
+             ];
+             const flightPath = new google.maps.Polyline({
+                 path: flightPlanCoordinates,
+                 geodesic: true,
+                 strokeColor: "#FF0000",
+                 strokeOpacity: 1.0,
+                 strokeWeight: 2,
+             });
+ 
+             flightPath.setMap(map);
+ 
+         });
+     }
+ </script>
+ <script src="https://maps.googleapis.com/maps/api/js?&callback=init_map&libraries=places,drawing"></script>
+ 
+ 
+ 

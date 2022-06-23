@@ -1,0 +1,21 @@
+{
+    "name": "ncode/maps",
+    "description": "Google Maps, Simple and Easy",
+    "type": "plugin",
+    "require": {
+        "htmlburger/carbon-fields": "^3.3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ncode\\Maps\\": "application/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ncode",
+            "email": "ncode@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
